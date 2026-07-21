@@ -30,7 +30,7 @@ with open("README.md", "r") as fh:
     long_description_text = fh.read()
 
 setuptools.setup(
-    name="HCGB",
+    name="UPyPac",
     version=get_version("./VERSION"),
 
     author="Jose F. Sanchez-Herrero",
@@ -41,7 +41,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     long_description=long_description_text,
 
-    url="https://github.com/HCGB-IGTP/HCGB_python_functions/",
+    url="https://github.com/JFsanchezherrero/useful_Python_package",
 
     packages=setuptools.find_packages(),
     license='MIT License',
@@ -52,5 +52,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     include_package_data=True,
-    install_requires=get_require_modules("./HCGB/config/python_requirements.txt"),
+    install_requires=get_require_modules("./UPyPac/config/python_requirements.txt"),
 )

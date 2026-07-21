@@ -24,7 +24,7 @@ from datetime import datetime
 
 
 ## my modules
-from HCGB.functions import aesthetics_functions
+from UPyPac.functions import aesthetics_functions
 
 ###########################
 ##      TIME            ###

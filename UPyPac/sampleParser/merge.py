@@ -12,7 +12,7 @@ from termcolor import colored
 import shutil
 import concurrent.futures
 
-from HCGB import functions
+from UPyPac import functions
 
 ###############
 def gunzip_merge(outfile, list_files):

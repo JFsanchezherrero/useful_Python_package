@@ -24,7 +24,7 @@ from Bio import SeqIO
 from termcolor import colored
 from collections import defaultdict
 ##
-from HCGB.functions import system_call_functions
+from UPyPac.functions import system_call_functions
 
 #################################
 ###         FASTA files        ##

@@ -25,7 +25,7 @@ import pandas as pd
 import urllib.request
 import json
 
-from HCGB import functions
+from UPyPac import functions
 
 ###################################
 ##     General main functions    ##

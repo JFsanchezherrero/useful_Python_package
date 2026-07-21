@@ -1,2 +1,2 @@
-conda skeleton pypi hcgb
-conda-build hcgb/
+conda skeleton pypi upypac
+conda-build upypac/

@@ -26,9 +26,9 @@ import os
 import re
 from termcolor import colored
 
-import HCGB.functions.aesthetics_functions as HCGB_aes
-import HCGB.functions.files_functions as HCGB_files
-import HCGB.functions.time_functions as HCGB_time
+import UPyPac.functions.aesthetics_functions as UPyPac_aes
+import UPyPac.functions.files_functions as UPyPac_files
+import UPyPac.functions.time_functions as UPyPac_time
 
 allids = {}
 
@@ -38,33 +38,33 @@ def parse_GTF_call(gtf_file, out_file, debug=False):
     ## debug messaging    
     if debug:
         print()
-        HCGB_aes.debug_message("********************** parse_GTF_call ********************** ")
-        HCGB_aes.debug_message("Checking if GTF has been previously converted to BED", "yellow")
+        UPyPac_aes.debug_message("********************** parse_GTF_call ********************** ")
+        UPyPac_aes.debug_message("Checking if GTF has been previously converted to BED", "yellow")
     
     path_given=os.path.dirname(out_file)
-    name = HCGB_files.get_file_name(out_file)
+    name = UPyPac_files.get_file_name(out_file)
     gtf_file = os.path.abspath(gtf_file)
         
     ## get absolute path and name
-    name_file = HCGB_files.get_path_name(gtf_file, path_given, 
+    name_file = UPyPac_files.get_path_name(gtf_file, path_given, 
                               name, debug=debug) + ".bed"
                               
     if debug:
-        HCGB_aes.debug_message("gtf_file: " + gtf_file, "yellow")
-        HCGB_aes.debug_message("name: " + name, "yellow")
-        HCGB_aes.debug_message("out_file: " + out_file, "yellow")
-        HCGB_aes.debug_message("name_file: " + name_file, "yellow")
+        UPyPac_aes.debug_message("gtf_file: " + gtf_file, "yellow")
+        UPyPac_aes.debug_message("name: " + name, "yellow")
+        UPyPac_aes.debug_message("out_file: " + out_file, "yellow")
+        UPyPac_aes.debug_message("name_file: " + name_file, "yellow")
                               
 
     filename_stamp = os.path.join(path_given, '.' + name + "_GTF_convertion_success")
-    if HCGB_files.is_non_zero_file(filename_stamp):
-        if HCGB_files.is_non_zero_file(out_file):
+    if UPyPac_files.is_non_zero_file(filename_stamp):
+        if UPyPac_files.is_non_zero_file(out_file):
             ## bed files exists
             if debug:
-                HCGB_aes.debug_message("Timestamp exists: .split_GTF_success ", "yellow")
+                UPyPac_aes.debug_message("Timestamp exists: .split_GTF_success ", "yellow")
                 print()
     
-            print (colored("\tA previous command generated results on: %s [%s]" %(HCGB_time.read_time_stamp(filename_stamp)
+            print (colored("\tA previous command generated results on: %s [%s]" %(UPyPac_time.read_time_stamp(filename_stamp)
                                                                                   , 'convert GTF -> BED'), 'yellow'))
             
             return(out_file)
@@ -73,10 +73,10 @@ def parse_GTF_call(gtf_file, out_file, debug=False):
     parse_GTF(gtf_file, out_file, debug=debug)
     
     ## print time stamp
-    HCGB_time.print_time_stamp(filename_stamp)
+    UPyPac_time.print_time_stamp(filename_stamp)
             
     if debug:
-        HCGB_aes.debug_message("********************** parse_GTF_call ********************** ")
+        UPyPac_aes.debug_message("********************** parse_GTF_call ********************** ")
     
     return (out_file)
 
@@ -107,7 +107,7 @@ def savebedline(estart, eend, field, nline, debug):
     
     ## debug messages    
     if debug:
-        HCGB_aes.debug_message("GTF line: ", "yellow")
+        UPyPac_aes.debug_message("GTF line: ", "yellow")
         print(field)
         
     ## ---------------------------------
@@ -199,11 +199,11 @@ def savebedline(estart, eend, field, nline, debug):
 
     ## debug messages    
     if debug:
-        HCGB_aes.debug_message("estart: " + str(estart), "yellow")
-        HCGB_aes.debug_message("seglen: " + str(seglen), "yellow")
-        HCGB_aes.debug_message("segstart: " + str(segstart), "yellow")
-        HCGB_aes.debug_message("strl: " + str(strl), "yellow")
-        HCGB_aes.debug_message("strs: " + str(strs), "yellow")
+        UPyPac_aes.debug_message("estart: " + str(estart), "yellow")
+        UPyPac_aes.debug_message("seglen: " + str(seglen), "yellow")
+        UPyPac_aes.debug_message("segstart: " + str(segstart), "yellow")
+        UPyPac_aes.debug_message("strl: " + str(strl), "yellow")
+        UPyPac_aes.debug_message("strs: " + str(strs), "yellow")
     
     ## ---------------------------------
     ## Save data information
@@ -213,7 +213,7 @@ def savebedline(estart, eend, field, nline, debug):
 
     ## debug messages    
     if debug:        
-        HCGB_aes.debug_message("data BED format: " + transid, "yellow")
+        UPyPac_aes.debug_message("data BED format: " + transid, "yellow")
         print(string2write)
 
     return (string2write)
@@ -233,7 +233,7 @@ def parse_GTF(gtf_file, out_file, debug):
 
     if debug:
         print("")
-        HCGB_aes.debug_message("*************")
+        UPyPac_aes.debug_message("*************")
         
     with open(out_file, 'w') as f:
         sys.stdout = f # Change the standard output to the file we created.
@@ -245,7 +245,7 @@ def parse_GTF(gtf_file, out_file, debug):
             
             ## debug messages
             if debug:
-                HCGB_aes.debug_message("nline: " + str(nline), "yellow")
+                UPyPac_aes.debug_message("nline: " + str(nline), "yellow")
                 print(lines)
                 
 
@@ -264,9 +264,9 @@ def parse_GTF(gtf_file, out_file, debug):
             
             if field[2]!='exon' and field[2] !='transcript':
                 if debug:        
-                    HCGB_aes.debug_message("Line: ", "yellow")
+                    UPyPac_aes.debug_message("Line: ", "yellow")
                     print(lines, file=sys.stderr)
-                    HCGB_aes.debug_message("nline: " + str(nline), "yellow")
+                    UPyPac_aes.debug_message("nline: " + str(nline), "yellow")
                     print('Error: the third filed is expected to be exon or transcript')
                     
                 continue
@@ -282,8 +282,8 @@ def parse_GTF(gtf_file, out_file, debug):
             
             ## debug messages
             if debug:
-                HCGB_aes.debug_message("prevtransid: " + str(prevtransid))
-                HCGB_aes.debug_message("transid: " + transid)
+                UPyPac_aes.debug_message("prevtransid: " + str(prevtransid))
+                UPyPac_aes.debug_message("transid: " + transid)
             
             ## when changes, save previous field information                
             if field[2]=='transcript' or (prevtransid != '' and transid!='' and transid != prevtransid):
@@ -292,10 +292,10 @@ def parse_GTF(gtf_file, out_file, debug):
                 if len(estart)!=0:
                     ## debug messages    
                     if debug:        
-                        HCGB_aes.debug_message("savebedline call")
-                        HCGB_aes.debug_message("estart: " + str(estart))
-                        HCGB_aes.debug_message("eend: " + str(eend))
-                        HCGB_aes.debug_message("prevfield: " + str(prevfield))
+                        UPyPac_aes.debug_message("savebedline call")
+                        UPyPac_aes.debug_message("estart: " + str(estart))
+                        UPyPac_aes.debug_message("eend: " + str(eend))
+                        UPyPac_aes.debug_message("prevfield: " + str(prevfield))
                     
                     ## save record in bed format
                     strin2print = savebedline(estart, eend, prevfield, nline, debug)
@@ -303,7 +303,7 @@ def parse_GTF(gtf_file, out_file, debug):
                     
                     ## debug messages
                     if debug:        
-                        HCGB_aes.debug_message("*************")
+                        UPyPac_aes.debug_message("*************")
                         print("")
                     
                 # Reset
@@ -328,12 +328,12 @@ def parse_GTF(gtf_file, out_file, debug):
         if len(estart)!=0:
             ## debug messages    
             if debug:        
-                HCGB_aes.debug_message("savebedline call")
-                HCGB_aes.debug_message("transid: " + transid)
-                HCGB_aes.debug_message("estart: " + str(estart))
-                HCGB_aes.debug_message("eend: " + str(eend))
-                HCGB_aes.debug_message("prevfield: " + str(prevfield))
-                HCGB_aes.debug_message("prevtransid: " + str(prevtransid))
+                UPyPac_aes.debug_message("savebedline call")
+                UPyPac_aes.debug_message("transid: " + transid)
+                UPyPac_aes.debug_message("estart: " + str(estart))
+                UPyPac_aes.debug_message("eend: " + str(eend))
+                UPyPac_aes.debug_message("prevfield: " + str(prevfield))
+                UPyPac_aes.debug_message("prevtransid: " + str(prevtransid))
 
             ## save record in bed format
             strin2print = savebedline(estart, eend, field, nline, debug)

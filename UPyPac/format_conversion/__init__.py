@@ -3,5 +3,5 @@ __all__ = [
     'gtf2bed'
 ]
 
-from HCGB.format_conversion import *
+from UPyPac.format_conversion import *
 

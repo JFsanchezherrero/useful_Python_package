@@ -4,7 +4,7 @@ One on hand, we can create a new `pip` package, also, we would create a `conda` 
 
 ## Create pip package
 
-HCGB python code is distributed in pip (https://pypi.org/project/HCGB/). 
+UPyPac python code is distributed in pip (https://pypi.org/project/UPyPac/). 
 
 Here, we have generated a few scripts in `devel/pypi` including all commands for the generation of the pip package. First, we would need to clean previous builds, then create a new distrubution to finally upload it to pip website. 
 
@@ -15,7 +15,7 @@ Basically, in the main git folder, type:
 sh devel/pypi/clean_devel.sh
 ```
 
-This code basically removes old builds in folders: `build`, `dist` and `HCGB.egg-info`:
+This code basically removes old builds in folders: `build`, `dist` and `UPyPac.egg-info`:
 
 
 ### create distribution files
@@ -31,11 +31,11 @@ or
 python setup.py sdist bdist_wheel
 ```
 
-Folders `build`, `dist` and `HCGB.egg-info` will be created.
+Folders `build`, `dist` and `UPyPac.egg-info` will be created.
 
 ### Upload to pip
 
-Basically, HCGB pip package is hosted under my user (I might change it in the future to a admin user).
+Basically, UPyPac pip package is hosted under my user (I might change it in the future to a admin user).
 
 To upload the builds generated, we first need to create a file named as `.pypirc` in the main git directory. Include the code:
 
@@ -69,7 +69,7 @@ https://packaging.python.org/tutorials/packaging-projects/
 
 
 ## Create conda distribution
-We have included files in the folder `devel/conda` for the build and configuration of the conda package. See details in `meta.yaml` file [here](https://github.com/HCGB-IGTP/HCGB/blob/f703e48dba7a466c371e7f4ad3bbf346081520bb/devel/conda/meta.yaml)
+We have included files in the folder `devel/conda` for the build and configuration of the conda package. See details in `meta.yaml` file [here](https://github.com/UPyPac-IGTP/UPyPac/blob/f703e48dba7a466c371e7f4ad3bbf346081520bb/devel/conda/meta.yaml)
 
 To create the new build, type the following command in the main git directory:
 

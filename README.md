@@ -3,13 +3,13 @@ This is a basic python module that contains multiple functions used in different
 
 ## Contents
 
-useful_Python_package/sampleParser:
+UPyPac/sampleParser:
 
 * files.py  
 * merge.py  
 * samples.py
 
-useful_Python_package/functions:
+UPyPac/functions:
 
 * aesthetics_functions.py  
 * fasta_functions.py  

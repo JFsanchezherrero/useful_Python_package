@@ -23,7 +23,7 @@ from itertools import groupby
 from termcolor import colored
 import os
 
-from HCGB.functions import system_call_functions
+from UPyPac.functions import system_call_functions
 
 #########################
 ###  BLAST callers    ###

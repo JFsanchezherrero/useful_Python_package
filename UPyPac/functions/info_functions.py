@@ -6,7 +6,7 @@
 
 import json
 import os
-from HCGB import functions
+from UPyPac import functions
 import hashlib
 from hmac import compare_digest
 

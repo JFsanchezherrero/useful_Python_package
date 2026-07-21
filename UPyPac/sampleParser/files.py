@@ -12,9 +12,9 @@ import re
 import pandas as pd
 from termcolor import colored
 
-from HCGB import functions
-from HCGB import sampleParser
-from HCGB.functions.aesthetics_functions import debug_message 
+from UPyPac import functions
+from UPyPac import sampleParser
+from UPyPac.functions.aesthetics_functions import debug_message 
 
 ###############
 def get_fields(file_name_list, pair, Debug, include_all):

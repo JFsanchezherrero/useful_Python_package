@@ -3,5 +3,5 @@ __all__ = [
     'extern_progs',
     'setup_module'
 ]
-from HCGB.config import *
+from UPyPac.config import *
 

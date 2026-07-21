@@ -4,5 +4,5 @@ __all__ = [
     'samples'
 ]
 
-from HCGB.sampleParser import *
+from UPyPac.sampleParser import *
 

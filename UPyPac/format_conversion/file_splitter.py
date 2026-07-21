@@ -17,9 +17,9 @@ import argparse
 import traceback
 from termcolor import colored
 
-import HCGB.functions.aesthetics_functions as HCGB_aes
-import HCGB.functions.time_functions as HCGB_time
-import HCGB.functions.files_functions as HCGB_files
+import UPyPac.functions.aesthetics_functions as UPyPac_aes
+import UPyPac.functions.time_functions as UPyPac_time
+import UPyPac.functions.files_functions as UPyPac_files
 
 ############################################################
 def create_names(file2split, name_file, chr_option, num_files, in_format, debug=False):
@@ -31,8 +31,8 @@ def create_names(file2split, name_file, chr_option, num_files, in_format, debug=
     
     if debug:
         print()
-        HCGB_aes.debug_message("********************** create_names ********************** ", "yellow")
-        HCGB_aes.debug_message("Create name for file subsets", "yellow")
+        UPyPac_aes.debug_message("********************** create_names ********************** ", "yellow")
+        UPyPac_aes.debug_message("Create name for file subsets", "yellow")
     
     ########################
     ## Chromosome option
@@ -67,7 +67,7 @@ def create_names(file2split, name_file, chr_option, num_files, in_format, debug=
         ## Number files to create
         ########################
         if debug:
-            HCGB_aes.debug_message("num_files: " + str(num_files), "yellow")
+            UPyPac_aes.debug_message("num_files: " + str(num_files), "yellow")
 
         for fileCount in range(num_files):
             file_name = name_file + "-" + str(fileCount+1) + "." + in_format.lower()
@@ -75,9 +75,9 @@ def create_names(file2split, name_file, chr_option, num_files, in_format, debug=
 
     if debug:
         print()
-        HCGB_aes.debug_message("dict_files_generated: " + str(dict_files_generated), "yellow")
+        UPyPac_aes.debug_message("dict_files_generated: " + str(dict_files_generated), "yellow")
         print()
-        HCGB_aes.debug_message("--------------------- create_names_GTF --------------------- ", "yellow")
+        UPyPac_aes.debug_message("--------------------- create_names_GTF --------------------- ", "yellow")
         print()
 
     ## return
@@ -101,22 +101,22 @@ def split_file_call(given_file, num_files, name, chr_option, in_format, path_giv
     ## debug messaging    
     if debug:
         print()
-        HCGB_aes.debug_message("********************** split_file_call ********************** ")
-        HCGB_aes.debug_message("Checking if file has been previously splitted", "yellow")
+        UPyPac_aes.debug_message("********************** split_file_call ********************** ")
+        UPyPac_aes.debug_message("Checking if file has been previously splitted", "yellow")
     
 
     print("+ Splitting file provided: " + given_file)
     
     if path_given:
         path_given = os.path.abspath(path_given)
-        HCGB_files.create_folder(path_given)
+        UPyPac_files.create_folder(path_given)
         print("+ Output: " + path_given)
     else:
         path_given = os.getcwd()
         print("+ Output: Current working directory: " + path_given )
     
     ## get absolute path and name
-    name_file = HCGB_files.get_path_name(given_file, path_given, name, debug=debug)
+    name_file = UPyPac_files.get_path_name(given_file, path_given, name, debug=debug)
 
     print("+ Checking if previously done...")
 
@@ -124,23 +124,23 @@ def split_file_call(given_file, num_files, name, chr_option, in_format, path_giv
     if os.path.isfile(filename_stamp):
         
         if debug:
-            HCGB_aes.debug_message("Time stamp exists: .split_file_success ", "yellow")
+            UPyPac_aes.debug_message("Time stamp exists: .split_file_success ", "yellow")
 
         ## check file names generated and return names
         files_generated = create_names(given_file, name_file, chr_option, num_files, in_format, debug=debug)
 
         re_run=False
         for f in files_generated.values():
-            if not HCGB_files.is_non_zero_file(f):
+            if not UPyPac_files.is_non_zero_file(f):
                 re_run=True
                 
                 if debug:
                     print()
-                    HCGB_aes.debug_message("It is required to re-run split: File is zero or does not exists\n" + f, "yellow")
+                    UPyPac_aes.debug_message("It is required to re-run split: File is zero or does not exists\n" + f, "yellow")
                 
                 break
         if not re_run:
-            stamp = HCGB_time.read_time_stamp(filename_stamp)
+            stamp = UPyPac_time.read_time_stamp(filename_stamp)
             print("")
             print (colored("\tA previous command generated results on: %s [%s]" %(stamp, 'split file'), 'yellow'))
             return (files_generated)
@@ -153,10 +153,10 @@ def split_file_call(given_file, num_files, name, chr_option, in_format, path_giv
     files_generated = split_file(given_file, num_files, name_file, chr_option, in_format, path_given, debug)
     
     ## print time stamp
-    HCGB_time.print_time_stamp(filename_stamp)
+    UPyPac_time.print_time_stamp(filename_stamp)
     
     if debug:
-        HCGB_aes.debug_message("********************** split_file_call ********************** ")
+        UPyPac_aes.debug_message("********************** split_file_call ********************** ")
     
     
     return (files_generated)    
@@ -179,23 +179,23 @@ def split_file(given_file, num_files, name, chr_option, in_format, path_given=Fa
 
     if debug:
         print()
-        HCGB_aes.debug_message("*************************** split_GTF ***************************", "yellow")
-        HCGB_aes.debug_message("given_file: " + given_file, "yellow")
-        HCGB_aes.debug_message("num_files: " + str(num_files), "yellow")        
-        HCGB_aes.debug_message("chr_option: " + str(chr), "yellow")
-        HCGB_aes.debug_message("name: " + name, "yellow")
-        HCGB_aes.debug_message("path_given: " + path_given, "yellow")
+        UPyPac_aes.debug_message("*************************** split_GTF ***************************", "yellow")
+        UPyPac_aes.debug_message("given_file: " + given_file, "yellow")
+        UPyPac_aes.debug_message("num_files: " + str(num_files), "yellow")        
+        UPyPac_aes.debug_message("chr_option: " + str(chr), "yellow")
+        UPyPac_aes.debug_message("name: " + name, "yellow")
+        UPyPac_aes.debug_message("path_given: " + path_given, "yellow")
 
     ## Check file is readable
-    if not (HCGB_files.is_non_zero_file(given_file)):
+    if not (UPyPac_files.is_non_zero_file(given_file)):
         print("ERROR: File not readable. Please check path for file:\n" + given_file)
         exit()
 
     ## get absolute path and name
-    #name = HCGB_files.get_path_name(given_file, path_given, name, debug=debug)
+    #name = UPyPac_files.get_path_name(given_file, path_given, name, debug=debug)
 
     if debug:
-        HCGB_aes.debug_message("name: " + name, "yellow")
+        UPyPac_aes.debug_message("name: " + name, "yellow")
     
     print("")
     
@@ -248,8 +248,8 @@ def split_file(given_file, num_files, name, chr_option, in_format, path_given=Fa
                     
                     ## Debug messages
                     if debug:
-                        HCGB_aes.debug_message("Chr: " + str(chrid), "red")
-                        HCGB_aes.debug_message("line: " + line, "red")
+                        UPyPac_aes.debug_message("Chr: " + str(chrid), "red")
+                        UPyPac_aes.debug_message("line: " + line, "red")
                     
                     ## stop when Chr changes
                     while True:
@@ -262,10 +262,10 @@ def split_file(given_file, num_files, name, chr_option, in_format, path_given=Fa
         
                         ## debug messages    
                         if debug:
-                            HCGB_aes.debug_message("line: " + line, "red")
-                            HCGB_aes.debug_message("line2: " + line2, "red")
-                            HCGB_aes.debug_message("geneid: " + chrid, "yellow")
-                            HCGB_aes.debug_message("chrid2: " + chrid2, "yellow")
+                            UPyPac_aes.debug_message("line: " + line, "red")
+                            UPyPac_aes.debug_message("line2: " + line2, "red")
+                            UPyPac_aes.debug_message("geneid: " + chrid, "yellow")
+                            UPyPac_aes.debug_message("chrid2: " + chrid2, "yellow")
         
                         ##
                         if (chrid == chrid2):
@@ -308,9 +308,9 @@ def split_file(given_file, num_files, name, chr_option, in_format, path_given=Fa
 
         ## Debug messages
         if debug:
-            HCGB_aes.debug_message("totalLines_file: " + str(totalLines_file), "yellow")
-            HCGB_aes.debug_message("fileLineCount: " + str(fileLineCount), "yellow")
-            HCGB_aes.debug_message("num_files: " + str(num_files), "yellow")
+            UPyPac_aes.debug_message("totalLines_file: " + str(totalLines_file), "yellow")
+            UPyPac_aes.debug_message("fileLineCount: " + str(fileLineCount), "yellow")
+            UPyPac_aes.debug_message("num_files: " + str(num_files), "yellow")
                 
         try:
             #read a file
@@ -340,8 +340,8 @@ def split_file(given_file, num_files, name, chr_option, in_format, path_given=Fa
     
                     ## Debug messages
                     #if debug:
-                    #    HCGB_aes.debug_message("lineCount: " + str(lineCount), "red")
-                    #    HCGB_aes.debug_message("line: " + line, "red")
+                    #    UPyPac_aes.debug_message("lineCount: " + str(lineCount), "red")
+                    #    UPyPac_aes.debug_message("line: " + line, "red")
                     
                     ## stop when max_lines_file achieved
                     if lineCount == fileLineCount:
@@ -360,12 +360,12 @@ def split_file(given_file, num_files, name, chr_option, in_format, path_given=Fa
         
                                 ## debug messages    
                                 #if debug:
-                                #    HCGB_aes.debug_message("lineCount: " + str(lineCount), "red")
-                                #    HCGB_aes.debug_message("line: " + line, "red")
-                                #    HCGB_aes.debug_message("lineCount2: " + str(lineCount2), "red")
-                                #    HCGB_aes.debug_message("line2: " + line2, "red")
-                                #    HCGB_aes.debug_message("geneid: " + geneid[0], "yellow")
-                                #    HCGB_aes.debug_message("geneid2: " + geneid2[0], "yellow")
+                                #    UPyPac_aes.debug_message("lineCount: " + str(lineCount), "red")
+                                #    UPyPac_aes.debug_message("line: " + line, "red")
+                                #    UPyPac_aes.debug_message("lineCount2: " + str(lineCount2), "red")
+                                #    UPyPac_aes.debug_message("line2: " + line2, "red")
+                                #    UPyPac_aes.debug_message("geneid: " + geneid[0], "yellow")
+                                #    UPyPac_aes.debug_message("geneid2: " + geneid2[0], "yellow")
                                 
                                 ##
                                 if (geneid[0] == geneid2[0]):
@@ -419,9 +419,9 @@ def split_file(given_file, num_files, name, chr_option, in_format, path_given=Fa
     ##
     if debug:
         print()
-        HCGB_aes.debug_message("dict_files_generated: " + str(dict_files_generated), "yellow")
+        UPyPac_aes.debug_message("dict_files_generated: " + str(dict_files_generated), "yellow")
         print()
-        HCGB_aes.debug_message("*************************** split_GTF ***************************", "yellow")
+        UPyPac_aes.debug_message("*************************** split_GTF ***************************", "yellow")
     
     print("\t\t Process finished here.")
     

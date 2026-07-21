@@ -26,9 +26,9 @@ from distutils.version import LooseVersion
 import pkg_resources
 
 ## import my modules
-import HCGB.functions.time_functions as HCGB_time
-import HCGB.functions.system_call_functions as HCGB_sys
-import HCGB.functions.main_functions as HCGB_main
+import UPyPac.functions.time_functions as UPyPac_time
+import UPyPac.functions.system_call_functions as UPyPac_sys
+import UPyPac.functions.main_functions as UPyPac_main
 
 
 ####################################################################
@@ -46,7 +46,7 @@ def file_list(wanted_data):
 
     """
     config_folder = os.path.dirname(os.path.realpath(__file__))
-    listOffiles = HCGB_main.get_fullpath_list(config_folder) 
+    listOffiles = UPyPac_main.get_fullpath_list(config_folder) 
     for f in listOffiles:
         name = os.path.splitext(os.path.basename(f))[0]
         if (name == wanted_data):
@@ -70,7 +70,7 @@ def read_dependencies():
     """
 
     ## read from file: prog2default.csv
-    dependencies_file = HCGB_main.retrieve_matching_files("dependencies")
+    dependencies_file = UPyPac_main.retrieve_matching_files("dependencies")
     return(functions.get_data(dependencies_file, ',', 'index_col=0'))
 
 #######################

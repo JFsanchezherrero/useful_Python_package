@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 ##########################################################
-## Jose F. Sanchez                                        ##
-## Copyright (C) 2019-2020 Lauro Sumoy Lab, IGTP, Spain    ##
+## Jose F. Sanchez                                      ##
+## Copyright (C) 2019-2020 Lauro Sumoy Lab, IGTP, Spain ##
 ##########################################################
 """
 Provides configuration for the pipeline.
@@ -15,8 +15,8 @@ from distutils.version import LooseVersion
 import pkg_resources
 
 ## import my modules
-from HCGB import functions
-from HCGB.config import extern_progs
+from UPyPac import functions
+from UPyPac.config import extern_progs
 
 ################
 ## Software

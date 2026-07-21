@@ -12,8 +12,8 @@ import re
 import pandas as pd
 from termcolor import colored
 
-from HCGB import sampleParser
-from HCGB import functions
+from UPyPac import sampleParser
+from UPyPac import functions
 
 ###########################################################################
 def select_samples (list_samples, samples_prefix, pair=True, exclude=False, Debug=False, lane=False, include_all=False):

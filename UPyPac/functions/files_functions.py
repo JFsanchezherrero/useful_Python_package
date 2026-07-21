@@ -26,8 +26,8 @@ import patoolib ## to extract
 import os
 
 ##
-from HCGB.functions import system_call_functions
-from HCGB.functions import aesthetics_functions
+from UPyPac.functions import system_call_functions
+from UPyPac.functions import aesthetics_functions
 
 ############################################################################
 ########                     FILES/FOLDERS                            ########                     
