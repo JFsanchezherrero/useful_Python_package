@@ -3,13 +3,13 @@ This is a basic python module that contains multiple functions used in different
 
 ## Contents
 
-HCGB/sampleParser:
+useful_Python_package/sampleParser:
 
 * files.py  
 * merge.py  
 * samples.py
 
-HCGB/functions:
+useful_Python_package/functions:
 
 * aesthetics_functions.py  
 * fasta_functions.py  
@@ -21,7 +21,7 @@ HCGB/functions:
 
 ## Copyright & License
 MIT License
-Copyright (c) 2020-2021 HCGB-IGTP
 
-http://www.germanstrias.org/technology-services/genomica-bioinformatica/
+Original Copyright (c) 2020-2025 HCGB-IGTP: Developed and maintained by Jose F. Sanchez-Herrero at Lauro Sumoy HCGB-IGTP http://www.germanstrias.org/technology-services/genomica-bioinformatica/
 
+Copyright (2026 - Current): Jose F. Sanchez-Herrero
