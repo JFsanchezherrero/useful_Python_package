@@ -23,7 +23,7 @@ import subprocess
 import pandas as pd
 from termcolor import colored
 from distutils.version import LooseVersion
-import pkg_resources
+#import pkg_resources
 
 ## import my modules
 import UPyPac.functions.time_functions as UPyPac_time
@@ -150,7 +150,7 @@ def min_python_module_version():
     """
     ## read from file: prog2default.csv
     python_modules = file_list("python_requirements")
-    package_min_versions = functions.file2dictionary(python_modules, "==")
+    package_min_versions = UPyPac_main.file2dictionary(python_modules, "==")
 
     return(package_min_versions)
 ##################

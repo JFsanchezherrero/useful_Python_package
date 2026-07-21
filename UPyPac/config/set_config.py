@@ -12,7 +12,7 @@ import re
 import subprocess
 from termcolor import colored
 from distutils.version import LooseVersion
-import pkg_resources
+#import pkg_resources
 
 ## import my modules
 from UPyPac import functions

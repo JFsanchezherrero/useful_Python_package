@@ -22,9 +22,6 @@ def get_version(version_file):
 
     return v
 
-
-
-
 long_description_text = ""
 with open("README.md", "r") as fh:
     long_description_text = fh.read()
